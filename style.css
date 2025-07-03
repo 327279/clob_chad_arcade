@@ -1,0 +1,1414 @@
+/* --- GLOBAL STYLES & VARIABLES --- */
+:root {
+    --primary-green: #97c35a;
+    --dark-green: #6d933c;
+    --deep-black: #121212;
+    --text-white: #ffffff;
+    --accent-orange: #f58427;
+    --font-headline: 'Anton', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--deep-black);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-section {
+    padding: 6rem 0;
+}
+
+.highlight {
+    color: var(--primary-green);
+}
+
+.based-text {
+    font-family: var(--font-headline);
+    font-size: 1.3rem !important;
+    text-align: center;
+    color: var(--text-white) !important;
+    letter-spacing: 1px;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-green);
+}
+
+.background-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle, transparent 49%, var(--dark-green) 50%),
+                      repeating-conic-gradient(var(--dark-green) 0% 5%, var(--primary-green) 5% 10%);
+    transform: translate(-50%, -50%);
+    animation: spin 60s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 50px;
+}
+
+#hero h1 {
+    font-size: 8rem;
+    color: var(--text-white);
+    text-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+    margin: 0;
+    line-height: 1;
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--dark-green); }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--dark-green); }
+}
+
+#hero h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--deep-black);
+    margin-top: 1rem;
+}
+
+.main-character-image {
+    width: 100%;
+    max-width: 550px;
+    margin-top: -100px;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- BUTTONS & SOCIALS --- */
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.single-button-layout {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn {
+    font-family: var(--font-headline);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--deep-black);
+    color: var(--text-white);
+    border: 2px solid var(--deep-black);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--deep-black);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--deep-black);
+    border: 2px solid var(--deep-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--deep-black);
+    color: var(--text-white);
+}
+
+.socials {
+    margin-top: 2.5rem;
+}
+
+.socials a {
+    color: var(--deep-black);
+    text-decoration: none;
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: var(--text-white);
+}
+
+
+/* --- ABOUT SECTION --- */
+#about h2 {
+    margin-bottom: 3rem;
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-image {
+    flex-basis: 40%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% { transform: translateY(0px); }
+	50% { transform: translateY(-20px); }
+	100% { transform: translateY(0px); }
+}
+
+.about-text {
+    flex-basis: 60%;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+.about-text .single-button-layout {
+    text-align: left;
+}
+
+
+/* --- TOKENOMICS SECTION (HOMEPAGE TEASER) --- */
+#tokenomics {
+    background-color: #1a1a1a;
+}
+#tokenomics .subtitle,
+#clobpaper .subtitle,
+#clobonomics-page .subtitle-quote {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- CONTRACT ADDRESS STYLES --- */
+.contract-address {
+    background-color: var(--deep-black);
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+.contract-address span {
+    font-family: monospace;
+    font-size: 1rem;
+    word-break: break-all;
+}
+
+#copy-button, #clobonomics-copy-button {
+    font-family: var(--font-headline);
+    background-color: var(--primary-green);
+    color: var(--deep-black);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#copy-button:hover, #clobonomics-copy-button:hover {
+    background-color: var(--dark-green);
+}
+
+/* --- ROADMAP SECTION --- */
+.roadmap-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.roadmap-item {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 2rem;
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+
+.roadmap-item h4 {
+    color: var(--primary-green);
+    font-size: 1rem;
+}
+
+.roadmap-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.roadmap-item ul {
+    list-style: none;
+}
+
+.roadmap-item ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.roadmap-item ul li:before {
+    content: '✓';
+    color: var(--primary-green);
+    margin-right: 0.5rem;
+}
+/* --- HOW TO BECOME CLOB CHAD? SECTION --- */
+#how-to-become {
+    background-color: #111111; /* Using the consistent dark background */
+}
+
+.chad-steps-grid {
+    display: grid;
+    /* This creates a responsive grid that works on all screen sizes */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem 2rem; /* Vertical and horizontal gap */
+    margin-top: 4rem;
+}
+
+.chad-step-item {
+    text-align: left; /* The text in each item is left-aligned */
+}
+
+.chad-step-item .step-number {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.chad-step-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+
+/* This is the key style for the "label" effect */
+.chad-step-item h3 span {
+    background-color: var(--text-white);
+    color: var(--deep-black);
+    padding: 0.2rem 0.6rem;
+    
+    /* This ensures the background hugs the text cleanly */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.chad-step-item p {
+    color: #ccc;
+    line-height: 1.7;
+}
+/* --- FOOTER --- */
+footer {
+    background-color: var(--deep-black);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+footer .btn-primary { background-color: var(--primary-green); color: var(--deep-black); border-color: var(--primary-green);}
+footer .btn-primary:hover { background-color: transparent; color: var(--primary-green); }
+footer .btn-secondary { border-color: var(--primary-green); color: var(--primary-green); }
+footer .btn-secondary:hover { background-color: var(--primary-green); color: var(--deep-black); }
+.disclaimer {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* --- STANDALONE PAGE STYLES (Clobpaper, Clobonomics) --- */
+.standalone-page {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.back-link-container {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.back-link {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--text-white);
+}
+
+.paper-section {
+    max-width: 800px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.paper-section h3, #clobonomics-page h3 {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.paper-section p {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+.chad-quote {
+    border-left: 4px solid var(--primary-green);
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.5rem;
+    font-style: italic;
+}
+
+.chad-quote p {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.chad-quote footer {
+    text-align: right;
+    font-style: normal;
+    color: #aaa;
+    padding: 0;
+}
+
+.origin-quote {
+    text-align: center;
+    border-left: none;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding: 1rem;
+}
+
+.tokenomics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.tokenomics-table thead { background-color: #222; }
+
+.tokenomics-table th {
+    padding: 1rem;
+    text-align: left;
+    font-family: var(--font-headline);
+    letter-spacing: 1px;
+}
+
+.tokenomics-table td {
+    padding: 1rem;
+    border: 1px solid #333;
+}
+
+.tokenomics-table td:first-child {
+    font-weight: bold;
+    color: var(--primary-green);
+    width: 35%;
+}
+
+.tokenomics-note {
+    text-align: center;
+    font-style: italic;
+    color: #aaa !important;
+}
+
+.check-list, .cross-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+}
+
+.check-list li, .cross-list li {
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+}
+
+.check-list li::before {
+    content: '✅';
+    margin-right: 1rem;
+}
+.cross-list li::before {
+    content: '❌';
+    margin-right: 1rem;
+}
+
+.supply-list {
+    list-style: none;
+    padding: 0;
+}
+
+.supply-list li {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--deep-black);
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.do-dont-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.can-do, .cant-do {
+    flex: 1;
+    min-width: 280px;
+}
+
+.can-do > p, .cant-do > p {
+    font-family: var(--font-headline);
+    font-size: 1.3rem !important;
+}
+
+.disclaimer-box {
+    background-color: var(--deep-black);
+    border: 2px solid var(--accent-orange);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.final-quote {
+    max-width: 800px;
+    margin: 4rem auto 0 auto;
+    text-align: center;
+    border-left: none;
+}
+
+/* --- ANIMATIONS & RESPONSIVENESS --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    h2 { font-size: 2.5rem; }
+    #hero h1 { font-size: 4rem; }
+    #hero h2 { font-size: 1.2rem; }
+    .main-character-image { max-width: 350px; margin-top: -60px; margin-bottom: -60px; }
+    .content-section { padding: 4rem 0; }
+    .btn { padding: 0.8rem 1.8rem; font-size: 1rem; }
+    .about-wrapper { flex-direction: column; text-align: center; }
+    .about-text .single-button-layout { text-align: center; }
+}
+
+@media (max-width: 480px) {
+    #hero h1 { font-size: 3rem; }
+    .main-character-image { max-width: 300px; margin-top: -40px; margin-bottom: -40px; }
+    .cta-buttons { flex-direction: column; }
+    .contract-address { flex-direction: column; text-align: center; }
+}
+/* --- CLOBMAP PAGE STYLES --- */
+.clobmap-phase {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.clobmap-phase h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 1rem;
+}
+
+/* Use different icons for upcoming phases */
+.phase-two-list li::before {
+    content: '🔜';
+}
+.phase-three-list li::before {
+    content: '🔮';
+}
+/* --- HOMEPAGE TEASER SECTIONS (CLOBONOMICS/CLOBMAP) --- */
+.teaser-wrapper {
+    background-color: #111111; /* The very dark gray from your image */
+}
+
+.teaser-section {
+    padding: 7rem 2rem; /* Adds the generous spacing */
+    text-align: center;
+}
+
+.teaser-section h2 {
+    color: var(--text-white); /* Plain white heading, no green */
+    margin-bottom: 1.5rem;
+}
+
+.teaser-section p {
+    color: #a0a0a0; /* Softer gray for subtitle text */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem; /* Space before the button */
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* New subtle button style */
+.btn-teaser {
+    background-color: #222; /* Dark button background */
+    color: #e0e0e0;
+    border: none; /* No border */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.8rem 2rem;
+}
+
+.btn-teaser:hover {
+    background-color: #333;
+    color: var(--text-white);
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+/* The divider line style */
+.teaser-divider {
+    border: none;
+    height: 1px;
+    background-color: #2a2a2a; /* A subtle, visible line color */
+    margin: 0;
+}
+/* --- CLOBPAPER PAGE HEADER --- */
+.clobpaper-header {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+}
+
+.clobpaper-header-image {
+    flex: 0 0 300px; /* Give the image a fixed base width */
+}
+
+.clobpaper-header-image img {
+    max-width: 100%;
+    animation: float 6s ease-in-out infinite; /* Reuse the floating animation */
+}
+
+.clobpaper-header-text .subtitle {
+    margin-top: -1rem; /* Adjust subtitle position */
+}
+
+/* --- HOMEPAGE CLOBPAPER TEASER SECTION --- */
+#clobpaper-teaser {
+    background-color: var(--deep-black); /* Same background as the About section */
+}
+
+.paper-teaser-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.paper-teaser-text {
+    flex: 1;
+}
+
+.paper-teaser-text h2 {
+    text-align: left;
+}
+
+.paper-teaser-text p {
+    color: #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.paper-teaser-text .single-button-layout {
+    text-align: left; /* Align button to the left */
+    margin-top: 1.5rem;
+}
+
+/* Make button match the green hero button style */
+.paper-teaser-text .btn-primary {
+    background-color: var(--primary-green);
+    color: var(--deep-black);
+    border-color: var(--primary-green);
+}
+
+.paper-teaser-text .btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-green);
+}
+
+.paper-teaser-image {
+    flex: 0 0 40%;
+    text-align: center;
+}
+
+.paper-teaser-image img {
+    max-width: 100%;
+    animation: float 6s ease-in-out infinite; /* Reuse the floating animation */
+}
+
+/* --- RESPONSIVENESS FOR NEW SECTIONS --- */
+@media (max-width: 768px) {
+    .clobpaper-header,
+    .paper-teaser-wrapper {
+        flex-direction: column-reverse; /* Put image on top on mobile */
+        text-align: center;
+    }
+
+    .paper-teaser-text h2,
+    .paper-teaser-text .single-button-layout {
+        text-align: center; /* Center text and button on mobile */
+    }
+
+    .clobpaper-header {
+        gap: 1rem;
+    }
+}
+/* --- HOMEPAGE CLOBONOMICS TEASER LAYOUT --- */
+.clobonomics-teaser-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.clobonomics-teaser-image {
+    flex: 0 0 40%; /* Image column takes up 40% width */
+}
+
+.clobonomics-teaser-image img {
+    max-width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.clobonomics-teaser-text {
+    flex: 1; /* Text column takes the rest of the space */
+}
+
+.clobonomics-teaser-text p {
+    /* Override centered styles from teaser-section */
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+/* Responsive adjustment for the new section */
+@media (max-width: 768px) {
+    .clobonomics-teaser-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* --- HOMEPAGE CLOBMAP TEASER LAYOUT --- */
+.clobmap-teaser-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.clobmap-teaser-image {
+    flex: 0 0 40%; /* Image column takes up 40% width */
+}
+
+.clobmap-teaser-image img {
+    max-width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.clobmap-teaser-text {
+    flex: 1; /* Text column takes the rest of the space */
+}
+
+.clobmap-teaser-text p {
+    /* Override centered styles from teaser-section */
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+/* Responsive adjustment for the new section */
+@media (max-width: 768px) {
+    .clobmap-teaser-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
+/* --- NAVBAR STYLES --- */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    z-index: 10; /* Ensures it's above other elements */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    color: var(--deep-black);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--deep-black);
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Underline hover effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--deep-black);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* --- NAVBAR STYLES (FOR SUB-PAGES) --- */
+.page-nav { 
+    background: #1a1a1a;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #333;
+}
+.page-nav .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.page-nav .nav-logo { font-family: var(--font-headline); font-size: 1.8rem; color: var(--text-white); text-decoration: none; letter-spacing: 1px; }
+.page-nav .nav-links { list-style: none; display: flex; gap: 2.5rem; }
+.page-nav .nav-links a { color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 1rem; position: relative; padding-bottom: 5px; }
+.page-nav .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--text-white); transition: width 0.3s ease; }
+.page-nav .nav-links a:hover::after { width: 100%; }
+
+/* --- HERO SECTION (FINAL V.2) --- */
+#hero { /* Base container style remains similar */
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-green);
+}
+
+.background-rays { /* This style is unchanged */
+    position: absolute; top: 50%; left: 50%; width: 200%; height: 200%; background-image: radial-gradient(circle, transparent 49%, var(--dark-green) 50%), repeating-conic-gradient(var(--dark-green) 0% 5%, var(--primary-green) 5% 10%); transform: translate(-50%, -50%); animation: spin 60s linear infinite; opacity: 0.5;
+}
+
+/* Container for Top Left/Right buttons */
+.hero-top-corners {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-top-right {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+}
+
+/* Main content area */
+.hero-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+/* --- HERO SECTION "CLOB CHAD" TEXT (DIGITAL GLITCH) --- */
+#hero h1.glow {
+    font-size: 10rem;
+    letter-spacing: 2px;
+    position: relative;
+    
+    /* 1. Base Text Styling */
+    color: var(--text-white);
+    -webkit-text-stroke: 1px var(--deep-black); /* Thin black outline */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Drop shadow for depth */
+
+    /* 2. The Animation */
+    animation: glitch-animation 4s linear infinite alternate;
+}
+
+/* 3. The Layered Glitch Effect (using ::before and ::after) */
+#hero h1.glow::before,
+#hero h1.glow::after {
+    content: "CLOB CHAD";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-green); /* The page background color */
+    overflow: hidden;
+}
+
+#hero h1.glow::before {
+    /* The red channel glitch */
+    -webkit-text-stroke: 1px red;
+    animation: glitch-anim-1 3s linear infinite alternate;
+}
+
+#hero h1.glow::after {
+    /* The blue channel glitch */
+    -webkit-text-stroke: 1px purple;
+    animation: glitch-anim-2 5s linear infinite alternate;
+}
+
+/* 4. The Keyframe Animations */
+@keyframes glitch-animation {
+  0% { transform: translate(0); }
+  10% { transform: translate(-3px, 3px); }
+  20% { transform: translate(0); }
+  30% { transform: translate(3px, -3px); }
+  40% { transform: translate(0); }
+  /* Remainder is a pause */
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(10% 0 80% 0); }
+  20% { clip-path: inset(50% 0 25% 0); }
+  40% { clip-path: inset(20% 0 65% 0); }
+  60% { clip-path: inset(90% 0 5% 0); }
+  80% { clip-path: inset(45% 0 40% 0); }
+  100% { clip-path: inset(70% 0 10% 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(75% 0 10% 0); }
+  20% { clip-path: inset(5% 0 90% 0); }
+  40% { clip-path: inset(60% 0 30% 0); }
+  60% { clip-path: inset(30% 0 50% 0); }
+  80% { clip-path: inset(80% 0 5% 0); }
+  100% { clip-path: inset(55% 0 20% 0); }
+}
+
+/* Step 5: The animated shine sweep pseudo-element */
+#hero h1.glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* The shine itself: a sharp, angled gradient */
+    background: linear-gradient(100deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0.7) 50%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0) 100%
+    );
+
+    /* Animate it across the text */
+    animation: shine-sweep 5s infinite;
+}
+
+@keyframes shine-sweep {
+    0% {
+        transform: translateX(-150%);
+    }
+    50% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(150%); /* Holds at the end for a pause */
+    }
+}
+
+/* Flex Chad, the main character */
+.hero-main-character {
+    width: 100%;
+    max-width: 500px;
+    margin-top: -65px; /* Adjust overlap with text */
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+.hero-main-character:hover {
+    transform: scale(1.03);
+}
+
+/* Attractive Social Icons (Reused from previous step, minor tweaks) */
+.creative-socials { display: flex; gap: 1rem; }
+.social-icon {
+    display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(0, 0, 0, 0.3); color: var(--text-white); border-radius: 50%; text-decoration: none; font-family: var(--font-headline); font-size: 1.1rem; border: 2px solid rgba(0,0,0,0.4); transition: all 0.2s ease-in-out;
+}
+.social-icon:hover { background: var(--deep-black); transform: translateY(-3px); }
+.coming-soon { opacity: 0.5; cursor: not-allowed; position: relative; }
+.coming-soon:hover::after { content: attr(data-tooltip); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background-color: var(--deep-black); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; white-space: nowrap; font-family: var(--font-body); }
+
+/* The "cool" spot for the new button */
+.hero-cult-button {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+.btn-cult {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.3rem;
+    border-width: 3px;
+}
+
+/* --- FINAL V.2 RESPONSIVE OVERHAUL --- */
+@media (max-width: 900px) {
+    .page-nav .nav-links { display: none; } /* Hide subpage nav links */
+    #hero h1.glow { font-size: 5rem; }
+    .hero-main-character { max-width: 320px; margin-top: -30px; }
+}
+@media (max-width: 768px) {
+    /* Stack top corner items vertically */
+    .hero-top-corners {
+        top: 20px; left: 20px; right: 20px;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    .btn-top-right {
+        order: 1; /* Buy button first */
+    }
+    .creative-socials {
+        order: 2; /* Socials second */
+    }
+    .hero-main-character { max-width: 280px; }
+}
+
+@media (max-width: 480px) {
+    #hero h1.glow { font-size: 3.5rem; }
+}
+/* --- THE CLOB CHAD ARCADE (MINIMALIST) --- */
+/* --- THE CLOB CHAD ARCADE (POLISHED) --- */
+#arcade { background-color: #111111; }
+.arcade-guide { text-align: center; max-width: 700px; margin: -1.5rem auto 4rem; color: #bbb; line-height: 1.7; }
+.arcade-wrapper { display: flex; gap: 2.5rem; align-items: flex-start; }
+.game-selection { flex-basis: 40%; }
+.game-selection h4 { font-size: 1.3rem; margin-bottom: 1.5rem; text-align: left; color: #999; }
+.game-card { /* Styles are good, no changes needed */ }
+.dapp-interface { flex-basis: 60%; background: linear-gradient(180deg, #1f1f1f, #111111); padding: 2.5rem; border-radius: 12px; border: 1px solid #2a2a2a; }
+
+/* Polished dApp UI after connection */
+.high-score-display, .credits-display { background: none; }
+#wallet-address-container { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a2a2a; padding-bottom: 1rem; }
+#disconnect-btn { background: none; border: 1px solid #555; color: #999; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer; transition: all 0.2s; }
+#disconnect-btn:hover { background: #f53127; color: white; border-color: #f53127; }
+.credits-display { align-items: baseline; }
+#cooldown-timer { font-size: 0.8rem; color: #888; font-family: monospace; }
+#add-credits-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+#add-credits-btn[disabled]:hover { border-color: #555; color: #aaa; }
+
+/* Game Modal and Size Fix */
+.game-modal-content { max-width: 650px; /* Controls max size of all games */ }
+.order-flow-grid { max-height: 400px; } /* Constrains the grid game height */
+.flappy-chad-canvas, .rug-pull-canvas { width: 100%; max-width: 450px; /* Makes canvas responsive but caps its size */ height: auto; }
+
+/* Custom Notifications (no changes needed) */
+#notification-container { /* ... */ } .notification { /* ... */ } /* etc. */
+/* Flappy Chad & Order Flow Polish (no changes needed) */
+.game-over-screen h2 { /* ... */ } .grid-cell { /* ... */ }
+
+/* Right Side: dApp Interface */
+.dapp-interface {
+    flex-basis: 55%;
+    background-color: #1C1C1C;
+    padding: 2.5rem; /* More padding for a premium feel */
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    text-align: center; /* Center the content inside */
+}
+
+.btn-full-width {
+    width: 80%; /* Don't make it full width, looks better */
+    margin: 0 auto; /* Center it */
+    font-size: 1.2rem;
+    display: block; /* Make it a block element to control width/margin */
+}
+
+/* Styling for the container after a user connects */
+.player-stats {
+    padding-top: 1.5rem;
+    display: none; /* Keep it hidden initially */
+}
+
+.high-score-display,
+.credits-display {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #000;
+    text-align: center;
+}
+
+.high-score-display p,
+.credits-display p {
+    margin: 0;
+    color: #999;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.high-score-display span {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+#wallet-address-container {
+    padding: 0.7rem 0;
+    text-align: center;
+}
+#wallet-address {
+    font-family: monospace; font-size: 0.9rem; color: #888;
+}
+
+.credits-display {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.credits-display p { font-size: 1.1rem; color: #fff; }
+.btn-small { padding: 0.5rem 1rem; font-size: 0.9rem; border-color: #555; color: #aaa; }
+.btn-small:hover { border-color: var(--primary-green); color: var(--primary-green); }
+
+/* Style the table */
+#leaderboard-table th, #leaderboard-table td {
+    padding: 1rem 0.5rem; /* More padding */
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+    color: #ccc;
+}
+
+#leaderboard-table th {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+#leaderboard-table td:first-child, /* Rank */
+#leaderboard-table th:first-child {
+    text-align: center;
+}
+#leaderboard-table td:last-child, /* Score */
+#leaderboard-table th:last-child {
+    text-align: right;
+}
+
+#leaderboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#leaderboard-table tbody tr:hover {
+    background-color: #252525;
+}
+
+/* Game Modal Styles */
+.game-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+.game-modal-content { background-color: #1a1a1a; margin: 10vh auto; padding: 20px; border: 1px solid #888; border-radius: 10px; width: 90%; max-width: 800px; position: relative; }
+.close-modal-btn { color: #aaa; position: absolute; top: 10px; right: 25px; font-size: 35px; font-weight: bold; cursor: pointer; }
+.close-modal-btn:hover { color: white; }
+
+/* Game Specific Styles within the Modal */
+#game-container h5 { text-align: center; font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem; }
+#game-container .game-canvas { display: block; background: #000; margin: 0 auto; }
+/* Styling for the Order Flow Hero game */
+.order-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 1.5rem 0;
+}
+
+.grid-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes it a perfect square */
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    border: 2px solid #444;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+.grid-cell:hover {
+    border-color: #fff;
+}
+
+/* These classes will be added/removed by JavaScript */
+.grid-cell.good {
+    background-color: var(--primary-green);
+    border-color: #c4f77c;
+    box-shadow: 0 0 20px var(--primary-green);
+}
+.grid-cell.bad {
+    background-color: #f53127; /* A more vibrant red */
+    border-color: #f77c7c;
+    box-shadow: 0 0 20px #f53127;
+}
+
+.grid-cell.tapped-good { animation: flash-good 0.3s forwards; }
+.grid-cell.tapped-bad { animation: flash-bad 0.3s forwards; }
+
+@keyframes flash-good {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); background-color: #fff; }
+  100% { transform: scale(1); }
+}
+@keyframes flash-bad {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); background-color: #000; }
+  100% { transform: scale(1); }
+}
+
+.game-ui { text-align: center; font-size: 1.2rem; font-weight: bold; }
+
+/* Styling for the Flappy Chad game */
+.flappy-chad-canvas {
+    display: block;
+    background-color: #000;
+    background-image: repeating-linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), repeating-linear-gradient(-45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111);
+    background-size: 60px 60px;
+    margin: 1.5rem auto 0;
+    border: 2px solid #555;
+    border-radius: 5px;
+}
+
+.game-over-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-family: var(--font-headline);
+    display: none; /* Hidden by default */
+}
+.game-over-screen h2 { font-size: 3rem; color: var(--primary-green); margin: 0; }
+.game-over-screen p { font-family: var(--font-body); font-size: 1.2rem; margin: 1rem 0; }
+
+/* Responsive Adjustments */
+@media(max-width: 900px) {
+    .arcade-wrapper { flex-direction: column; }
+    .game-selection, .dapp-interface { flex-basis: 100%; }
+}
+/* --- ARCADE CREDITS UI --- */
+.credits-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #2a2a2a;
+}
+.credits-display p {
+    margin: 0;
+}
+.btn-small {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+}
+/* --- THE CLOB CHAD ARCADE (Visuals Only) --- */
+#arcade {
+    background-color: #111111;
+}
+.arcade-guide {
+    text-align: center;
+    max-width: 700px;
+    margin: -1.5rem auto 4rem; /* More space at the bottom */
+    color: #bbb;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.arcade-wrapper {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+/* Left Side: Game Selection */
+.game-selection { flex-basis: 45%; }
+.game-selection h4 { font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center; color: #999; }
+.game-card { background: #1C1C1C; padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; margin-bottom: 1.2rem; cursor: pointer; transition: all 0.2s ease; }
+.game-card:hover { transform: translateY(-5px); border-color: var(--primary-green); box-shadow: 0 5px 20px rgba(151, 195, 90, 0.1); }
+.game-card h5 { font-size: 1.5rem; }
+.game-card p { color: #999; font-size: 1rem; }
+.game-card.coming-soon { opacity: 0.4; cursor: not-allowed; }
+.game-card.coming-soon:hover { transform: none; border-color: #2a2a2a; box-shadow: none; }
+/* Right Side: dApp Interface */
+.dapp-interface { flex-basis: 55%; background-color: #1C1C1C; padding: 2.5rem; border-radius: 12px; border: 1px solid #2a2a2a; text-align: center; }
+.btn-full-width { width: 80%; margin: 0 auto; font-size: 1.2rem; display: block; }
+.leaderboard { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #2a2a2a; }
+.leaderboard h4 { text-align: center; font-size: 1.3rem; margin-bottom: 1.5rem; }
+#leaderboard-table { width: 100%; border-collapse: collapse; }
+/* Game Modal Styles */
+.game-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+.game-modal-content { background-color: #1a1a1a; margin: 10vh auto; padding: 20px; border: 1px solid #888; border-radius: 10px; width: 90%; max-width: 800px; position: relative; }
+.close-modal-btn { color: #aaa; position: absolute; top: 10px; right: 25px; font-size: 35px; font-weight: bold; cursor: pointer; }
+.close-modal-btn:hover { color: white; }
+#game-container h5 { text-align: center; font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem; }
+/* Responsive Adjustments */
+@media(max-width: 900px) {
+    .arcade-wrapper { flex-direction: column; }
+    .game-selection, .dapp-interface { flex-basis: 100%; }
+}
+/* --- CUSTOM NOTIFICATIONS --- */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.notification {
+    background: #1C1C1C;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(120%);
+    animation: slide-in 0.5s forwards, slide-out 0.5s 4.5s forwards;
+}
+.notification.success { border-left: 5px solid var(--primary-green); }
+.notification.error { border-left: 5px solid var(--accent-orange); }
+.notification-icon { font-size: 1.5rem; }
+.notification-body p { margin: 0; font-weight: 600; }
+.notification-body span { font-size: 0.9rem; color: #aaa; }
+@keyframes slide-in {
+    to { transform: translateX(0); }
+}
+@keyframes slide-out {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(120%); opacity: 0; }
+}
+
+/* --- GAME POLISH & SMOOTHING --- */
+/* Order Flow Hero: Add smoother transition */
+.grid-cell { transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+/* Flappy Chad: Make Game Over screen cooler */
+.game-over-screen h2 { text-shadow: 0 0 15px var(--primary-green); }
